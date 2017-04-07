@@ -1,2 +1,32 @@
 {% extends "material/frontend/base_site.html" %}
+{% load i18n %}
 
+{% block title %}{{ block.super }}{% endblock %}
+{% block page_title %}{{ request.user.get_full_name }}{% endblock %}
+
+
+{% block content %}
+{% block left-panel %}
+<div class="left-panel">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title black-text">{{ title }}</span>
+            <p><br/>{% trans "TCS Interviews" %}</p>
+        </div>
+        <div class="card-action right-align">
+            <a href="{% url 'login' %}" class="btn btn-primary white-text">{% trans 'Apply' %}</a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title black-text">{{ title }}</span>
+            <p><br/>{% trans "Check Results" %}</p>
+        </div>
+        <div class="card-action right-align">
+            <a href="{% url 'login' %}" class="btn btn-primary white-text">{% trans 'Results' %}</a>
+        </div>
+    </div>
+</div>
+{% endblock left-panel %}
+{% block right-panel %}{% endblock right-panel %}
+{% endblock %}
