@@ -3,8 +3,9 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext, loader
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, DetailView
-
+from django.views.generic import ListView
+from job.models import Job
+from result.models import Result
 from .models import Profile
 
 class StudentProfileView(LoginRequiredMixin, ListView):
@@ -17,6 +18,11 @@ class StudentProfileView(LoginRequiredMixin, ListView):
 
 def url_redirect(request):
     return HttpResponseRedirect("/login")
+
+def student_profile_view(request):
+    jobs = Job.objects.all()
+    results = Result.objects.all()
+    return render(request, 'student/profile.html', {'jobs': jobs, 'results': results})
 
 # def user_login(request):
 #     context = RequestContext(request)
