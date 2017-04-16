@@ -1,4 +1,4 @@
-# Placement Managament System
+# Placement Management System
 
 Placement Management System (PMS) developed as mini-project for Government Engineering College, Thrissur. 
 
