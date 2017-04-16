@@ -4,19 +4,6 @@
 {% block title %}{% trans Login %} - {{ block.super }}{% endblock %}
 {% block page_title %}{% trans 'Placement Management System' %}{% endblock %}
 
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
-
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login to see this page.</p>
-    {% endif %}
-{% endif %}
-
 {% block content %}
 {% block left-panel %}
 <div class="left-panel">

@@ -1,3 +1,4 @@
 from django.db import models
 
-# Create your models here.
+class Result(models.Model):
+    resultfile = models.FileField(upload_to='results/%Y/%m/%d')
