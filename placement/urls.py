@@ -16,10 +16,13 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from portal.views import url_redirect
+from django.views.static import serve
+from django.conf import settings
 
 urlpatterns = [
     url('^student/', include('portal.urls')),
     url('^', include('django.contrib.auth.urls')),    
     url(r'^admin/', admin.site.urls),
     url(r'^$', url_redirect, name="url-redirect"),
+    url(r'^results/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT,}),
 ]

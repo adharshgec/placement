@@ -128,3 +128,7 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/student/profile'
 
 AUTH_PROFILE_MODULE = 'portal.Profile'
+
+MEDIA_URL = '/results/'
+
+MEDIA_ROOT = './'
