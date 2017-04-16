@@ -36,8 +36,10 @@
                 </li>
                 {% endblock %}
                 {% block sidenav_items %}
+               
                 {% for module in modules %}
                 {% if current_module == module %}
+                
                 <li class="active">
                     <ul class="collapsible collapsible-accordion">
                         <li>

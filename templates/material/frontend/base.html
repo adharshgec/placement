@@ -35,7 +35,17 @@
                     </div>
                 </li>
                 {% endblock %}
+
                 {% block sidenav_items %}
+                <li>
+                    <div>
+                        {% if user.is_authenticated %}
+                        <a href="#"><span style="color:black"> Profile </span></a>
+                        <a href="#"><span style="color:black">Results </span></a>
+                        <a href="#"><span style="color:black">Job notifications </span></a>
+                        {% endif %}
+                    </div>
+                </li>
                 {% for module in modules %}
                 {% if current_module == module %}
                 <li class="active">
