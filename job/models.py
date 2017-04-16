@@ -1,4 +1,5 @@
 from django.db import models
+from portal.models import Profile
 
 class Job(models.Model):
     company_id = models.IntegerField(unique=True)
@@ -9,3 +10,7 @@ class Job(models.Model):
     def __unicode__(self):
         return unicode(self.company_id) 
 
+class AppliedJob(models.Model):
+    student_rollno = models.ForeignKey(Profile, on_delete=models.CASCADE,)
+    student_applied_job = models.ForeignKey(Job, on_delete=models.CASCADE,)
+        
