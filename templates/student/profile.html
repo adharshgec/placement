@@ -7,34 +7,33 @@
 
 {% block content %}
 {% block left-panel %}
-<div class="left-panel">
-    {% for job in jobs %}
+<div class="left-panel">   
     <div class="card">
         <div class="card-content">
             <span class="card-title black-text">{{ title }}</span>
-            <p><br/>                         
-                <strong>{{ job.company }}</strong>
-                <p>{{ job.description }}</p>                      
+            <p><br/>
+            <ul>                         
+                <li>Name: <strong>{{ request.user.get_full_name }}</strong></li>
+                <li>Roll Number: {{ request.user.profile.rollno }}</li>
+                <li>Date of Birth: {{ user.profile.birthdate }}</li>
+                <li>CGPA: {{ user.profile.current_cgpa }}</li>              
             </p>
+            </ul>
         </div>
-
-        <div class="card-action right-align">
+        <!-- <div class="card-action right-align">
             <a href="{% url 'login' %}" class="btn btn-primary white-text">{% trans 'Apply' %}</a>
-        </div>
-    </div>
-    {% endfor %}
-    {% for result in results %}
+        </div> --> 
+    </div>    
     <div class="card">
         <div class="card-content">
             <span class="card-title black-text">{{ title }}</span>
-            <p><br/><a href="{{ result.resultfile.url }}">{{ result.resultfile }}</a></p>
+            <p><br/>Change Password</p>
         </div>
         <div class="card-action right-align">
-            <a href="{% url 'login' %}" class="btn btn-primary white-text">{% trans 'Results' %}</a>
+            <a href="{% url 'password_change' %}" class="btn btn-primary white-text">{% trans 'Change' %}</a>
         </div>
     </div>
 </div>
-{% endfor %}
 {% endblock left-panel %}
 {% block right-panel %}{% endblock right-panel %}
 {% endblock %}

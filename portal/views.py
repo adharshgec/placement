@@ -19,10 +19,16 @@ class StudentProfileView(LoginRequiredMixin, ListView):
 def url_redirect(request):
     return HttpResponseRedirect("/login")
 
-def student_profile_view(request):
-    jobs = Job.objects.all()
+def student_profile_view(request):    
+    return render(request, 'student/profile.html')
+
+def student_result_view(request):
     results = Result.objects.all()
-    return render(request, 'student/profile.html', {'jobs': jobs, 'results': results})
+    return render(request, 'student/result.html', {'results': results})
+
+def student_job_view(request):
+    jobs = Job.objects.all()
+    return render(request, 'student/job.html', {'jobs': jobs})
 
 # def user_login(request):
 #     context = RequestContext(request)

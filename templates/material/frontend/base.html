@@ -25,13 +25,13 @@
                         <img class="background" src="{% static 'material/imgs/sidenav.svg' %}">
                         {% block userphoto %}
                         {% if user.photo.url %}
-                        <a href="#"><img class="circle" src="{{ user.photo.url }}"></a>
+                        <a href="/student/profile"><img class="circle" src="{{ user.photo.url }}"></a>
                         {% else %}
-                        <a href="#"><img class="circle" src="{% static 'material/imgs/user.png' %}"></a>
+                        <a href="/student/profile"><img class="circle" src="{% static 'material/imgs/user.png' %}"></a>
                         {% endif %}
                         {% endblock %}
-                        <a href="#"><span class="white-text name">{{ request.user.get_username|title }}</span></a>
-                        <a href="#"><span class="white-text email">{{ request.user.email }}</span></a>
+                        <a href="/student/profile"><span class="white-text name">{{ request.user.get_username|title }}</span></a>
+                        <a href="/student/profile"><span class="white-text email">{{ request.user.email }}</span></a>
                     </div>
                 </li>
                 {% endblock %}
@@ -40,9 +40,9 @@
                 <li>
                     <div>
                         {% if user.is_authenticated %}
-                        <a href="#"><span style="color:black"> Profile </span></a>
-                        <a href="#"><span style="color:black">Results </span></a>
-                        <a href="#"><span style="color:black">Job notifications </span></a>
+                        <a href="/student/profile"><span style="color:black"> Profile </span></a>
+                        <a href="/student/result"><span style="color:black">Results </span></a>
+                        <a href="/student/job"><span style="color:black">Job Notifications </span></a>
                         {% endif %}
                     </div>
                 </li>
