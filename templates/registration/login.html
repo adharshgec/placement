@@ -17,8 +17,7 @@
     {% else %}
     <div class="card">
         <div class="card-content">
-            <span class="card-title black-text">{% trans 'Log in' %}</span>
-            
+            <span class="card-title black-text">{% trans 'Log in' %}</span>            
             <form action="{% url 'login' %}" method="post" id="login-form">{% csrf_token %}
                 {% if 'username' in form.fields %}
                 {% form %}

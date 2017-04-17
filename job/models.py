@@ -11,7 +11,7 @@ class Job(models.Model):
         return str(self.company_id) 
 
 class AppliedJob(models.Model):
-    student_rollno = models.ForeignKey(Profile, on_delete=models.CASCADE,)
+    student_profile = models.ForeignKey(Profile, on_delete=models.CASCADE,)
     student_applied_job = models.ForeignKey(Job, on_delete=models.CASCADE,)
 
     def __str__(self):
