@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
-from job.models import Job
+from job.models import Job, AppliedJob
 from result.models import Result
 
 
@@ -15,5 +15,6 @@ def student_result_view(request):
     return render(request, 'student/result.html', {'results': results})
 
 def student_job_view(request):
+    applied_jobs = AppliedJob.objects.all()
     jobs = Job.objects.all()
-    return render(request, 'student/job.html', {'jobs': jobs})
+    return render(request, 'student/job.html', {'jobs': jobs, 'applied_jobs': applied_jobs})

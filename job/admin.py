@@ -11,9 +11,9 @@ class JobModelAdmin(admin.ModelAdmin):
         model = Job
 
 class AppliedJobModelAdmin(admin.ModelAdmin):
-    list_display = ["student_profile", "student_applied_job"]
+    list_display = ["student_id", "student_applied_job"]
     search_fields = ["student_applied_job"]
-    list_display_links = ["student_profile"]
+    list_display_links = ["student_id"]
 
     class Meta:
         model = AppliedJob

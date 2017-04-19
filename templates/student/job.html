@@ -7,9 +7,12 @@
 
 {% block content %}
 {% block left-panel %}
-<div class="left-panel">
-    {% for job in jobs %}
+<div class="left-panel">       
+    {% for job in jobs %}  
+    {% for applied_job in applied_jobs %}   
     {% if user.profile.current_cgpa > job.minimum_cgpa %}
+    {% ifequal applied_job.student_id user.profile.rollno %} 
+    {% ifequal applied_job.student_applied_job job.company %}    
     <div class="card">
         <div class="card-content">
             <span class="card-title black-text">{{ title }}</span>
@@ -19,10 +22,18 @@
             </p>
         </div>
         <div class="card-action right-align">
-            <a href="{% url 'login' %}" class="btn btn-primary white-text">{% trans 'Apply' %}</a>
+            <form action="{% url 'student-job-apply' %}" method="post">
+            {% csrf_token %}            
+            <input type="hidden" name="id" value="{{ user.profile.rollno }}">
+            <input type="hidden" name="applied-job" value="{{ job.company }}">
+      <input type="submit" value="Apply"  class="btn btn-primary white-text">
+    </form>
         </div>
     </div>
-    {% endif %}
+    {% endifequal %}
+    {% endifequal %}
+    {% endif %}   
+    {% endfor %}
     {% endfor %}    
 {% endblock left-panel %}
 {% block right-panel %}{% endblock right-panel %}
