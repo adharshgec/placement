@@ -18,3 +18,8 @@ def student_job_view(request):
     applied_jobs = AppliedJob.objects.all()
     jobs = Job.objects.all()
     return render(request, 'student/job.html', {'jobs': jobs, 'applied_jobs': applied_jobs})
+
+def student_applied_jobs(request):
+    applied_jobs = AppliedJob.objects.all()
+    jobs = Job.objects.all()
+    return render(request, 'student/applied_jobs.html', {'jobs': jobs, 'applied_jobs': applied_jobs})

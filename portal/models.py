@@ -8,7 +8,8 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     rollno = models.CharField(max_length=30, blank=True, primary_key=True)
     birthdate = models.DateField(null=True, blank=True)
-    current_cgpa = models.DecimalField(max_digits=4, decimal_places=2, default=1.00)        
+    current_cgpa = models.DecimalField(max_digits=4, decimal_places=2, default=1.00)
+    current_backlogs = models.IntegerField(default=1)        
 
     def __str__(self):  # __unicode__ for Python 2
         return self.user.username

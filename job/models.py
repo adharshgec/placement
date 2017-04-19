@@ -8,6 +8,7 @@ class Job(models.Model):
     company = models.CharField(max_length=50)
     description = models.TextField(max_length=200)
     minimum_cgpa = models.DecimalField(max_digits=4, decimal_places=2)
+    minimum_backlogs = models.IntegerField(default=1)
 
     def __str__(self):
         return str(self.company_id) 
