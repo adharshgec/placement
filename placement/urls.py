@@ -22,7 +22,7 @@ from django.conf import settings
 urlpatterns = [
     url('^student/', include('portal.urls')),
     url('^', include('django.contrib.auth.urls')),    
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),    
     url(r'^$', url_redirect, name="url-redirect"),
-    url(r'^results/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT,}),
+    url(r'^results/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT,}),    
 ]
