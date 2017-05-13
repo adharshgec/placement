@@ -7,39 +7,7 @@
 
 {% block content %}
 {% block left-panel %}
-<div class="left-panel">    
-    {% if applied_jobs %}          
-    {% for job in jobs %}
-    {% for applied_job in applied_jobs %}       
-    {% if user.profile.current_backlogs <= job.minimum_backlogs %}
-    {% if user.profile.current_cgpa > job.minimum_cgpa %}
-    {% if user.profile.rollno != applied_job.student_id and job.company == applied_job.student_applied_job %}
-                  
-    <div class="card">
-        <div class="card-content">
-            <span class="card-title black-text">{{ title }}</span>
-            <p><br/>                         
-                <strong>{{ job.company }}</strong>
-                <p>{{ job.description }}</p>
-                <p>Date of Test: {{ job.date_of_test }}</p>                      
-            </p>
-        </div>
-        <div class="card-action right-align">
-            <form action="{% url 'student-job-apply' %}" method="post">
-            {% csrf_token %}            
-            <input type="hidden" name="id" value="{{ user.profile.rollno }}">
-            <input type="hidden" name="applied-job" value="{{ job.company }}">
-      <input type="submit" value="Apply"  class="btn btn-primary white-text">
-    </form>
-        </div>
-    </div>        
-    {% endif %}
-    
-    {% endif %}
-    {% endif %}    
-    {% endfor %}
-    {% endfor %}    
-    {% else %}
+<div class="left-panel">      
     {% for job in jobs %}
     {% if user.profile.current_backlogs <= job.minimum_backlogs %}
     {% if user.profile.current_cgpa > job.minimum_cgpa %}
@@ -51,20 +19,19 @@
                 <p>{{ job.description }}</p>
                 <p>Date of Test: {{ job.date_of_test }}</p>                      
             </p>
-        </div>
-        <div class="card-action right-align">
+        </div>        
+        <div class="card-action right-align">        
             <form action="{% url 'student-job-apply' %}" method="post">
             {% csrf_token %}            
             <input type="hidden" name="id" value="{{ user.profile.rollno }}">
             <input type="hidden" name="applied-job" value="{{ job.company }}">
       <input type="submit" value="Apply"  class="btn btn-primary white-text">
-    </form>
-        </div>
+    </form>        
+        </div>        
     </div>
     {% endif %}
     {% endif %}
-    {% endfor %}
-    {% endif %}
+    {% endfor %}    
 {% endblock left-panel %}
 {% block right-panel %}{% endblock right-panel %}
 {% endblock %}
