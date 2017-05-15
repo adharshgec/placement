@@ -10,7 +10,7 @@ class Job(models.Model):
     description = models.TextField(max_length=200)
     date_of_test = models.DateField(blank=True, null=True)
     minimum_cgpa = models.DecimalField(max_digits=4, decimal_places=2)
-    minimum_backlogs = models.IntegerField(default=1)
+    minimum_backlogs = models.IntegerField(default=1)    
     # applied_students = models.ManyToManyField(Profile)
 
     def __str__(self):

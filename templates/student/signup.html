@@ -1,0 +1,24 @@
+{% extends "material/frontend/base_site.html" %}
+{% load i18n %}
+
+{% block title %}{{ block.super }}{% endblock %}
+{% block page_title %}{{ request.user.get_full_name }}{% endblock %}
+
+{% block content %}
+<div class="card">
+        <div class="card-content">
+            <span class="card-title black-text">{% trans 'Register' %}</span>  
+                  <form method="post" id="register-form">
+                    {% csrf_token %}
+                    {% for field in form %}
+                      <p>
+                        {{ field.label_tag }}<br>
+                        {{ field }}                        
+                        {% for error in field.errors %}
+                          <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                      </p>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary">Sign up</button>
+                  </form>
+{% endblock %}

@@ -1,5 +1,5 @@
 from django.conf.urls import include, url
-from portal.views import student_profile_view, student_job_view, student_result_view, student_applied_jobs
+from portal.views import student_profile_view, student_job_view, student_result_view, student_applied_jobs, signup
 from job.views import student_job_apply
 
 urlpatterns = [
@@ -7,5 +7,6 @@ urlpatterns = [
     url(r'^result/$', student_result_view, name='student-result'),   
     url(r'^job/$', student_job_view, name='student-job'),
     url(r'^job_applied/$', student_job_apply, name='student-job-apply'),
-    url(r'^applied_jobs/$', student_applied_jobs, name='student-applied-jobs'),     
+    url(r'^applied_jobs/$', student_applied_jobs, name='student-applied-jobs'),  
+    url(r'^signup/$', signup, name='student-signup'),   
 ]
