@@ -132,5 +132,3 @@ AUTH_PROFILE_MODULE = 'portal.Profile'
 MEDIA_URL = '/results/'
 
 MEDIA_ROOT = './'
-
-APPEND_SLASH=False
